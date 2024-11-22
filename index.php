@@ -36,7 +36,7 @@ public function getName(){
 }
 
 public function setName($name){
-    return $this->name=$name;
+       $this->name=$name;
 }
 
 
@@ -63,34 +63,81 @@ echo $cat->speed();
 $cat->setName('Mary');
 echo $cat->getName();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 內部的值要回傳就用getName，要改名字才會用setName
 
 
 
 ?>
+
+<h1>繼承<h1>
+
+<?php
+
+class Cat extends Animal implements Behavior{
+    protected $type='cat';
+    protected $name="judy";
+    function __construct($hair_color){
+    $this->hair_color=$hair_color;
+    }
+     function jump(){
+        echo $this->name . " can jump 2m";
+     }
+}
+
+interface Behavior{
+    public function run();
+    public function speed();
+    public function jump();
+}
+
+
+
+
+
+
+
+$mycat=new Cat('white');
+
+echo $mycat->getName();
+echo "<br>";
+echo $mycat->run();
+echo "<br>";
+echo $mycat->speed();
+echo "<br>";
+echo $mycat->setName("judy");
+echo $mycat->getName();
+echo "<br>";
+echo $mycat->jump();
+echo "<br>";
+
+?>
+
+<?php
+
+class Dog extends Animal{
+    protected $type='dog';
+    protected $name="wanwan";
+    function __construct($hair_color){
+    $this->hair_color=$hair_color;
+    }
+}
+
+$mydog=new Dog('white');
+
+echo $mydog->getName();
+echo "<br>";
+echo $mydog->run();
+echo "<br>";
+echo $mydog->speed();
+echo "<br>";
+echo $mydog->setName("yoyo");
+echo $mydog->getName();
+echo "<br>";
+
+?>
+
+
+
+
 </body>
 </html>
