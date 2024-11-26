@@ -105,11 +105,15 @@ function a2s($array){
     return $tmp;
 }
 
+/**從資料庫中獲取單一紀錄
+ */
 function fetchOne($sql){
     // echo $sql;
     return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 }
 
+/**從資料庫中獲取所有紀錄
+ */
 function fetchAll($sql){
     // echo $sql;
     return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
