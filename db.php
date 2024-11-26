@@ -76,8 +76,10 @@ function del($id){
     if(isset($array['id'])){
         //update
         //update table set `欄位1`='值1',`欄位2`='值2' where `id`='值' 
+        $id=$array['id'];
+        unset($array['id']);
         $set=$this->a2s($array);
-        $sql ="UPDATE $this->table SET ".join(',',$set)." where `id`='{$array['id']}'";
+        $sql ="UPDATE $this->table SET ".join(',',$set)." where `id`='$id'";
             
     }else{
         //insert
